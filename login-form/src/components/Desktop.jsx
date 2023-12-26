@@ -1,6 +1,7 @@
 // Desktop.js
-
+import Button from "@mui/material/Button";
 import { useEffect, useState } from "react";
+import TextField from "@mui/material/TextField";
 import "./Desktop.css";
 
 function Desktop() {
@@ -41,6 +42,7 @@ function Desktop() {
     e.preventDefault();
     if (validateForm()) {
       setFormData(true);
+      alert("You have successfully signed in!");
     } else {
       alert("Please fill the form completely");
     }
@@ -51,36 +53,44 @@ function Desktop() {
       <main className="Login">
         <div className="leftside">
           <div className="signin-form">
-            <h1>Welcome Back 👋</h1>
-            <p>
-              Today is a new day. It&apos;s your day. You shape it. Sign in to
-              start managing your work.
-            </p>
+            <div className="top-heading">
+              <h1>Welcome Back 👋</h1>
+              <p>
+                Today is a new day. It&apos;s your day. You shape it. Sign in to
+                start managing your work.
+              </p>
+            </div>
             <form className="form-container" onSubmit={handleSubmit}>
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <label>Email</label>
+                {/* <label>Email</label>
                 <input
                   type="text"
                   placeholder="Example@email.com"
                   name="email"
                   value={inputData.email}
                   onChange={handleData}
-                />
+                /> */}
+                <label>Email</label>
+                <TextField id="outlined-basic" label="" variant="outlined" />
+
                 <div className="error">{errors.email}</div>
               </div>
-              <div>
+              <div style={{ display: "flex", flexDirection: "column" }}>
                 <label>Password</label>
-                <input
+                <TextField id="outlined-basic" label="" variant="outlined" />
+                {/* <input
                   type="password"
                   placeholder="at least 8 characters"
                   name="password"
                   value={inputData.password}
                   onChange={handleData}
-                />
+                /> */}
                 <div className="error">{errors.password}</div>
               </div>
               <p className="forgot">Forgot Password?</p>
-              <button type="submit">Sign In</button>
+              {/* <button type="submit">Sign In</button> */}
+
+              <Button variant="contained">Sign In</Button>
             </form>
           </div>
         </div>
